@@ -2672,12 +2672,6 @@ skip_dma_resources:
 		goto err_attrs;
 	}
 	spi_debugfs_init(dd);
-	dd->ipc_logs = ipc_log_context_create(4, dev_name(dd->dev), 0);
-	if (!dd->ipc_logs)
-		dev_info(&pdev->dev, "%s: failed to create ipc log cntxt\n",
-							__func__);
-
-	spi_ipc(dd->ipc_logs, false, dd->dev, "%s: success\n", __func__);
 
 	return 0;
 
